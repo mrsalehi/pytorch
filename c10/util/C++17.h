@@ -11,6 +11,10 @@
 #include <functional>
 #include <c10/macros/Macros.h>
 
+#if (defined(_MSC_VER) && (!defined(_MSVC_LANG) || _MSVC_LANG < 201402L)) || (!defined(_MSC_VER) && __cplusplus < 201402L)
+#error You need C++14 to compile PyTorch
+#endif
+
 /*
  * This header adds some polyfills with C++14 and C++17 functionality
  */
